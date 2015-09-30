@@ -1,0 +1,14 @@
+C:\Users\jward01\Documents\Visual Studio 2015\Projects\JournalNotes\JournalNotes\bin\Debug\JournalNotes.exe.config
+C:\Users\jward01\Documents\Visual Studio 2015\Projects\JournalNotes\JournalNotes\bin\Debug\JournalNotes.exe
+C:\Users\jward01\Documents\Visual Studio 2015\Projects\JournalNotes\JournalNotes\bin\Debug\JournalNotes.pdb
+C:\Users\jward01\Documents\Visual Studio 2015\Projects\JournalNotes\JournalNotes\obj\Debug\JournalNotes.csprojResolveAssemblyReference.cache
+C:\Users\jward01\Documents\Visual Studio 2015\Projects\JournalNotes\JournalNotes\obj\Debug\MainWindow.g.cs
+C:\Users\jward01\Documents\Visual Studio 2015\Projects\JournalNotes\JournalNotes\obj\Debug\App.g.cs
+C:\Users\jward01\Documents\Visual Studio 2015\Projects\JournalNotes\JournalNotes\obj\Debug\JournalNotes_MarkupCompile.cache
+C:\Users\jward01\Documents\Visual Studio 2015\Projects\JournalNotes\JournalNotes\obj\Debug\JournalNotes_MarkupCompile.lref
+C:\Users\jward01\Documents\Visual Studio 2015\Projects\JournalNotes\JournalNotes\obj\Debug\MainWindow.baml
+C:\Users\jward01\Documents\Visual Studio 2015\Projects\JournalNotes\JournalNotes\obj\Debug\JournalNotes.g.resources
+C:\Users\jward01\Documents\Visual Studio 2015\Projects\JournalNotes\JournalNotes\obj\Debug\JournalNotes.Properties.Resources.resources
+C:\Users\jward01\Documents\Visual Studio 2015\Projects\JournalNotes\JournalNotes\obj\Debug\JournalNotes.csproj.GenerateResource.Cache
+C:\Users\jward01\Documents\Visual Studio 2015\Projects\JournalNotes\JournalNotes\obj\Debug\JournalNotes.exe
+C:\Users\jward01\Documents\Visual Studio 2015\Projects\JournalNotes\JournalNotes\obj\Debug\JournalNotes.pdb
