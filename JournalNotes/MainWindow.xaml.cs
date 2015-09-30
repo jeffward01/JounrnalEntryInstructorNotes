@@ -50,5 +50,21 @@ namespace JournalNotes
 
                 
         }
+
+        //Clear DeleteEntry on Focus
+        private void textBox_DeleteEntry_GotFocus(object sender, RoutedEventArgs e)
+        {
+            textBox_DeleteEntry.Text = String.Empty;
+        }
+
+        private void textBox_EditEntry_GotFocus(object sender, RoutedEventArgs e)
+        {
+            textBox_EditEntry.Text = String.Empty;
+        }
+
+        private void textBox_DuplicateEntry_GotFocus(object sender, RoutedEventArgs e)
+        {
+            textBox_DuplicateEntry.Text = String.Empty;
+        }
     }
 }
