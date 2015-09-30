@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="452.858" Width="525">
     <Grid Margin="0,0,0,16">
-        <DataGrid x:Name="dataGrid_JournalEntries" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="221" Width="481"/>
+        <DataGrid x:Name="dataGrid_JournalEntries" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="221" Width="481" CanUserAddRows="False"/>
         <Button x:Name="button" Content="Publish" HorizontalAlignment="Left" Height="67" Margin="369,329,0,0" VerticalAlignment="Top" Width="122" Background="#FFCCF1C7" Click="button_Click"/>
         <TextBox x:Name="textBox_Entry" HorizontalAlignment="Left" Height="57" Margin="10,339,0,0" TextWrapping="Wrap" VerticalAlignment="Top" AcceptsTab="True" AcceptsReturn="True" AutoWordSelection="True" SpellCheck.IsEnabled="True" Width="338" VerticalScrollBarVisibility="Auto"/>
         <TextBox x:Name="textBox_Title" HorizontalAlignment="Left" Height="32" Margin="10,283,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="338"/>

@@ -16,4 +16,5 @@ namespace JournalNotes
         public string Entry { get; set; }
 
     }
+
 }

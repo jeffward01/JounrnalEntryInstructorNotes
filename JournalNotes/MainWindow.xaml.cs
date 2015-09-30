@@ -48,8 +48,7 @@ namespace JournalNotes
 
             currentJournal.Entries.Add(newEntry);
 
-            
-            
+                
         }
     }
 }
