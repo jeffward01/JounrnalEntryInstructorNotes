@@ -17,7 +17,7 @@ namespace JournalNotes
 
             Entries = new ObservableCollection<JournalEntry>();
 
-            var entry = new JournalEntry();
+          //  var entry = new JournalEntry();
         }
 
         //Properties
