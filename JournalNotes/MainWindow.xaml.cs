@@ -85,11 +85,7 @@ namespace JournalNotes
             if (toBeErased != null)
             {
                 currentJournal.Entries.Remove(toBeErased);
-
             }
-            
-
-
         }
 
         //Dupliate Entry
@@ -265,6 +261,19 @@ namespace JournalNotes
             //Refresh Grid
             dataGrid_JournalEntries.ItemsSource = null;
             dataGrid_JournalEntries.ItemsSource = currentJournal.Entries;
+        }
+      
+        private void doubleClickDataGrid(object sender, SelectionChangedEventArgs e)
+        {
+            //Cast
+            JournalEntry selected = (JournalEntry)dataGrid_JournalEntries.SelectedItem;
+
+            //open new window with selection
+            var window = new ConnectWindow { Owner = this };
+            window.LoadEntry(selected);
+            window.ShowDialog();
+
+
         }
     }
 

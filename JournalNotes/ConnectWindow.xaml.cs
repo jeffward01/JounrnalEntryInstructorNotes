@@ -28,8 +28,6 @@ namespace JournalNotes
 
         public void LoadEntry(JournalEntry entry)
         {
-            MessageBox.Show("TEST");
-
             currentEntry = entry;
 
             //Populate New WIndow
@@ -53,6 +51,7 @@ namespace JournalNotes
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
+            //This is a cast
             var mainWindow = (MainWindow)Owner;
 
             //Save Inputs to varibles
