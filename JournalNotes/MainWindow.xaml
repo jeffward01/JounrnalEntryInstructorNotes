@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:JournalNotes"
         mc:Ignorable="d"
-        Title="MainWindow" Height="452.858" Width="552.333">
+        Title="MainWindow" Height="452.858" Width="668.333">
     <Grid Margin="0,0,0,16">
         <DataGrid x:Name="dataGrid_JournalEntries" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="221" Width="440" CanUserAddRows="False"  >
             <DataGrid.AlternatingRowBackground>
@@ -18,14 +18,16 @@
 
         <Button x:Name="button" Content="Publish" HorizontalAlignment="Left" Height="67" Margin="369,329,0,0" VerticalAlignment="Top" Width="122" Background="#FFCCF1C7" Click="button_Click"/>
         <TextBox x:Name="textBox_Entry" HorizontalAlignment="Left" Height="57" Margin="10,339,0,0" TextWrapping="Wrap" VerticalAlignment="Top" AcceptsTab="True" AcceptsReturn="True" AutoWordSelection="True" SpellCheck.IsEnabled="True" Width="338" VerticalScrollBarVisibility="Auto"/>
-        <TextBox x:Name="textBox_Title" HorizontalAlignment="Left" Height="32" Margin="10,283,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="338"/>
+        <TextBox x:Name="textBox_Title" HorizontalAlignment="Left" Height="32" Margin="10,278,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="338"/>
         <Label x:Name="label" Content="Title:" HorizontalAlignment="Left" Height="34" Margin="10,244,0,0" VerticalAlignment="Top" Width="42"/>
         <Label x:Name="label_Copy" Content="Entry:" HorizontalAlignment="Left" Height="34" Margin="10,315,0,0" VerticalAlignment="Top" Width="42"/>
-        <Button x:Name="button_DeleteEntry" Content="Delete Entry" HorizontalAlignment="Left" Height="21" Margin="455,10,0,0" VerticalAlignment="Top" Width="57" FontSize="8" RenderTransformOrigin="0.474,0.873"/>
-        <TextBox x:Name="textBox_DeleteEntry" HorizontalAlignment="Left" Height="23" Margin="455,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="52" Text="Entry #"/>
-        <Button x:Name="button_EditEntry" Content="Edit Entry" HorizontalAlignment="Left" Height="21" Margin="455,73,0,0" VerticalAlignment="Top" Width="57" FontSize="8"/>
-        <TextBox x:Name="textBox_EditEntry" HorizontalAlignment="Left" Height="23" Margin="455,94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="52" Text="Entry #"/>
-        <Button x:Name="button_DuplicateEntry" Content="Duplicate Entry" HorizontalAlignment="Left" Height="21" Margin="455,134,0,0" VerticalAlignment="Top" Width="57" FontSize="8"/>
-        <TextBox x:Name="textBox_DuplicateEntry" HorizontalAlignment="Left" Height="23" Margin="455,155,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="52" Text="Entry #"/>
+        <Button x:Name="button_DeleteEntry" Content="Delete Entry" HorizontalAlignment="Left" Height="21" Margin="455,10,0,0" VerticalAlignment="Top" Width="57" FontSize="8" RenderTransformOrigin="0.474,0.873" Click="button_DeleteEntry_Click"/>
+        <TextBox x:Name="textBox_DeleteEntry" HorizontalAlignment="Left" Height="23" Margin="455,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="52" Text="Entry #" GotFocus="onFocusClearText"/>
+        <Button x:Name="button_EditEntry" Content="Edit Entry" HorizontalAlignment="Left" Height="21" Margin="455,73,0,0" VerticalAlignment="Top" Width="57" FontSize="8" Click="button_EditEntry_Click"/>
+        <TextBox x:Name="textBox_EditEntry" HorizontalAlignment="Left" Height="23" Margin="455,94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="52" Text="Entry #" GotFocus="onFocusClearText"/>
+        <Button x:Name="button_DuplicateEntry" Content="Duplicate Entry" HorizontalAlignment="Left" Height="21" Margin="455,134,0,0" VerticalAlignment="Top" Width="57" FontSize="8" Click="button_DuplicateEntry_Click"/>
+        <TextBox x:Name="textBox_DuplicateEntry" HorizontalAlignment="Left" Height="23" Margin="455,155,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="52" Text="Entry #" GotFocus="onFocusClearText"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="221" Margin="535,10,0,0" VerticalAlignment="Top" Width="2"/>
+        <Button x:Name="button_DeleteEntry_Copy" Content="Clear All Entries" HorizontalAlignment="Left" Height="21" Margin="560,10,0,0" VerticalAlignment="Top" Width="73" FontSize="8" RenderTransformOrigin="0.474,0.873" Click="button_DeleteEntry_Copy_Click"/>
     </Grid>
 </Window>

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace JournalNotes
 {
     //Class
-    class JournalEntry
+    public class JournalEntry
     {
         //Properties
         public int Id { get; set; }

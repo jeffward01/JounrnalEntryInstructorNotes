@@ -51,20 +51,218 @@ namespace JournalNotes
                 
         }
 
-        //Clear DeleteEntry on Focus
-        private void textBox_DeleteEntry_GotFocus(object sender, RoutedEventArgs e)
+        //Casting Technique
+        //Clear all Textboxes
+        private void onFocusClearText(object sender, RoutedEventArgs e)
         {
-            textBox_DeleteEntry.Text = String.Empty;
+            var textBox = (TextBox)sender;
+
+            textBox.Text = string.Empty;
         }
 
-        private void textBox_EditEntry_GotFocus(object sender, RoutedEventArgs e)
+
+        //Delete Entry
+        private void button_DeleteEntry_Click(object sender, RoutedEventArgs e)
         {
-            textBox_EditEntry.Text = String.Empty;
+            //Grab input from textbox
+            string EraseEntryNum = textBox_DeleteEntry.Text;
+            
+            //validate input and save input
+            int EraseNum = readInt(EraseEntryNum);
+
+            //cycle through journal entries locate id#
+            JournalEntry toBeErased = null;
+
+            foreach(var entry in currentJournal.Entries)
+            {
+                if(entry.Id == EraseNum)
+                {
+                    toBeErased = entry;
+                    break;
+                }
+            }
+
+            if (toBeErased != null)
+            {
+                currentJournal.Entries.Remove(toBeErased);
+
+            }
+            
+
+
         }
 
-        private void textBox_DuplicateEntry_GotFocus(object sender, RoutedEventArgs e)
+        //Dupliate Entry
+        private void button_DuplicateEntry_Click(object sender, RoutedEventArgs e)
         {
-            textBox_DuplicateEntry.Text = String.Empty;
+            //Grab Input from user
+            string EntryToDuplicate = textBox_DuplicateEntry.Text;
+
+            //Validate and save as int
+            int EntryNum = readInt(EntryToDuplicate);
+
+            //Make Var for JournalEntry
+            JournalEntry toBeDuplicated= null;
+
+            foreach (var id in currentJournal.Entries)
+            {
+                if (id.Id == EntryNum)
+                {
+                    toBeDuplicated = id;
+                    break;
+                }
+            }
+
+            if (toBeDuplicated != null)
+            {
+                //Dupliate Entry Here
+
+                JournalEntry newCopy = null;
+
+                newCopy = toBeDuplicated;
+
+
+                newCopy.Id = currentJournal.Entries.Count + 1;
+
+                currentJournal.Entries.Add(newCopy);
+
+
+            }
+
+
+
+
+        }
+
+        public int readInt(string myInput, bool isPositive = true, bool canBeZero = false)
+        {
+
+            try
+            {
+                //Grab Users input
+                string input = myInput;
+
+                //Make sure there is input
+                if(string.IsNullOrEmpty(input))
+                {
+                    MessageBox.Show("Please enter a number before pressing button");
+                    return 0;
+                }
+
+                int myInt = int.Parse(input);
+
+                //Make sure myInput is positive
+                if(isPositive == true && myInt < 0 )
+                {
+                    MessageBox.Show("Please enter a positive number before pressing button");
+                }
+                if(canBeZero == false && myInt == 0)
+                {
+                    MessageBox.Show("Please enter a non zero number before pressing button");
+
+                }
+
+                return myInt;
+
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Please enter a whole number");
+                return 0;
+
+            }
+            
+            
+
+        }
+
+        //Clear All Entries
+        private void button_DeleteEntry_Copy_Click(object sender, RoutedEventArgs e)
+        {
+
+            //Ask user if they are sure they want to clear all Entries
+            MessageBoxResult result = MessageBox.Show("Are you sure you want to clear all entries?", "Clear all Entries", MessageBoxButton.YesNo);
+
+            if (result == MessageBoxResult.Yes)
+            {
+                currentJournal.Entries.Clear();
+             
+            }
+            return;
+        }
+
+        private void button_EditEntry_Click(object sender, RoutedEventArgs e)
+        {
+
+            //Locate Entry
+            string input = textBox_EditEntry.Text;
+
+            //Validate UserInput
+            int EntryID = readInt(input);
+
+            //Make Var for JournalEntry
+            JournalEntry toBeEditted = null;
+
+            //Locate Object
+            foreach (var id in currentJournal.Entries)
+            {
+                if (id.Id == EntryID)
+                {
+                    toBeEditted = id;
+                    break;
+                }
+            }
+
+            if (toBeEditted != null)
+            {
+                //Open Edit Entry Window Here
+                openEditEntry(toBeEditted);
+            }
+
+        }
+        public void openEditEntry(JournalEntry editEntry)
+        {
+            //open window
+            var window = new ConnectWindow { Owner = this };
+            window.LoadEntry(editEntry);
+            window.ShowDialog();
+
+          
+
+        }
+        public void reWriteEntry(JournalEntry newVersion)
+        {
+            int newVerstionID = newVersion.Id;
+
+            //declare varible for oldversion
+            JournalEntry OldVersion = null;
+
+            //Locate old Version
+            foreach (var entry in currentJournal.Entries)
+            {
+                if(entry.Id == newVerstionID)
+                {
+                    OldVersion = newVersion;
+                    break;
+                }
+
+                //Resave New Version
+                if(OldVersion != null)
+                {
+                    //Remove Old Version
+                    currentJournal.Entries.RemoveAt(newVerstionID);
+                    currentJournal.Entries.Add(OldVersion);
+
+                    //Find location of newly modified entry
+                    int modifiedEntry = currentJournal.Entries.Count;
+
+                    //Move modified entry to previous location
+                    currentJournal.Entries.Move(modifiedEntry, newVerstionID);
+
+                }
+            }
         }
     }
+
 }

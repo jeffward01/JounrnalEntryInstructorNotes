@@ -12,3 +12,5 @@ C:\Users\jward01\Documents\Visual Studio 2015\Projects\JournalNotes\JournalNotes
 C:\Users\jward01\Documents\Visual Studio 2015\Projects\JournalNotes\JournalNotes\obj\Debug\JournalNotes.csproj.GenerateResource.Cache
 C:\Users\jward01\Documents\Visual Studio 2015\Projects\JournalNotes\JournalNotes\obj\Debug\JournalNotes.exe
 C:\Users\jward01\Documents\Visual Studio 2015\Projects\JournalNotes\JournalNotes\obj\Debug\JournalNotes.pdb
+C:\Users\jward01\Documents\Visual Studio 2015\Projects\JournalNotes\JournalNotes\obj\Debug\ConnectWindow.g.cs
+C:\Users\jward01\Documents\Visual Studio 2015\Projects\JournalNotes\JournalNotes\obj\Debug\ConnectWindow.baml
