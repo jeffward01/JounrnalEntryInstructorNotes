@@ -262,6 +262,9 @@ namespace JournalNotes
 
                 }
             }
+            //Refresh Grid
+            dataGrid_JournalEntries.ItemsSource = null;
+            dataGrid_JournalEntries.ItemsSource = currentJournal.Entries;
         }
     }
 
