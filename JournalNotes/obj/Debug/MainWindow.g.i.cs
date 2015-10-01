@@ -163,7 +163,7 @@ namespace JournalNotes {
         
         #line 43 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.MenuItem MenuItem_Save;
+        internal System.Windows.Controls.MenuItem MenuItem_Open;
         
         #line default
         #line hidden
@@ -171,7 +171,7 @@ namespace JournalNotes {
         
         #line 44 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.MenuItem MenuItem_SaveAs;
+        internal System.Windows.Controls.MenuItem MenuItem_Save;
         
         #line default
         #line hidden
@@ -179,13 +179,21 @@ namespace JournalNotes {
         
         #line 45 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.MenuItem MenuItem_Print;
+        internal System.Windows.Controls.MenuItem MenuItem_SaveAs;
         
         #line default
         #line hidden
         
         
         #line 46 "..\..\MainWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.MenuItem MenuItem_Print;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 47 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.MenuItem MenutItem_Exit;
         
@@ -328,36 +336,45 @@ namespace JournalNotes {
             #line hidden
             return;
             case 16:
-            this.MenuItem_Save = ((System.Windows.Controls.MenuItem)(target));
+            this.MenuItem_Open = ((System.Windows.Controls.MenuItem)(target));
             
             #line 43 "..\..\MainWindow.xaml"
-            this.MenuItem_Save.Click += new System.Windows.RoutedEventHandler(this.MenuItem_Save_Click);
+            this.MenuItem_Open.Click += new System.Windows.RoutedEventHandler(this.MenuItem_Open_Click);
             
             #line default
             #line hidden
             return;
             case 17:
-            this.MenuItem_SaveAs = ((System.Windows.Controls.MenuItem)(target));
+            this.MenuItem_Save = ((System.Windows.Controls.MenuItem)(target));
             
             #line 44 "..\..\MainWindow.xaml"
-            this.MenuItem_SaveAs.Click += new System.Windows.RoutedEventHandler(this.MenuItem_SaveAs_Click);
+            this.MenuItem_Save.Click += new System.Windows.RoutedEventHandler(this.MenuItem_Save_Click);
             
             #line default
             #line hidden
             return;
             case 18:
-            this.MenuItem_Print = ((System.Windows.Controls.MenuItem)(target));
+            this.MenuItem_SaveAs = ((System.Windows.Controls.MenuItem)(target));
             
             #line 45 "..\..\MainWindow.xaml"
-            this.MenuItem_Print.Click += new System.Windows.RoutedEventHandler(this.MenuItem_Print_Click);
+            this.MenuItem_SaveAs.Click += new System.Windows.RoutedEventHandler(this.MenuItem_SaveAs_Click);
             
             #line default
             #line hidden
             return;
             case 19:
-            this.MenutItem_Exit = ((System.Windows.Controls.MenuItem)(target));
+            this.MenuItem_Print = ((System.Windows.Controls.MenuItem)(target));
             
             #line 46 "..\..\MainWindow.xaml"
+            this.MenuItem_Print.Click += new System.Windows.RoutedEventHandler(this.MenuItem_Print_Click);
+            
+            #line default
+            #line hidden
+            return;
+            case 20:
+            this.MenutItem_Exit = ((System.Windows.Controls.MenuItem)(target));
+            
+            #line 47 "..\..\MainWindow.xaml"
             this.MenutItem_Exit.Click += new System.Windows.RoutedEventHandler(this.MenutItem_Exit_Click);
             
             #line default
