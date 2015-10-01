@@ -14,3 +14,5 @@ C:\Users\jward01\Documents\Visual Studio 2015\Projects\JournalNotes\JournalNotes
 C:\Users\jward01\Documents\Visual Studio 2015\Projects\JournalNotes\JournalNotes\obj\Debug\JournalNotes.pdb
 C:\Users\jward01\Documents\Visual Studio 2015\Projects\JournalNotes\JournalNotes\obj\Debug\ConnectWindow.g.cs
 C:\Users\jward01\Documents\Visual Studio 2015\Projects\JournalNotes\JournalNotes\obj\Debug\ConnectWindow.baml
+C:\Users\jward01\Documents\Visual Studio 2015\Projects\JournalNotes\JournalNotes\bin\Debug\Newtonsoft.Json.dll
+C:\Users\jward01\Documents\Visual Studio 2015\Projects\JournalNotes\JournalNotes\bin\Debug\Newtonsoft.Json.xml

@@ -13,7 +13,10 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using JournalNotes.Properties;
-
+using Microsoft.Win32;
+using System.IO;
+using System.Collections;
+using Newtonsoft.Json;
 namespace JournalNotes
 {
     /// <summary>
@@ -31,6 +34,8 @@ namespace JournalNotes
         }
         //Properties
         private Journal currentJournal;
+        public string fileName = "";
+        public string defaultFileName = "Untitled";
 
         //Methods
         private void button_Click(object sender, RoutedEventArgs e)
@@ -47,8 +52,10 @@ namespace JournalNotes
             newEntry.EntryDate = currentDate;
 
             currentJournal.Entries.Add(newEntry);
+            textBox_Title.Text = String.Empty;
+            textBox_Entry.Text = String.Empty;
 
-                
+
         }
 
         //Casting Technique
@@ -58,6 +65,8 @@ namespace JournalNotes
             var textBox = (TextBox)sender;
 
             textBox.Text = string.Empty;
+
+           
         }
 
 
@@ -151,6 +160,7 @@ namespace JournalNotes
                 if(isPositive == true && myInt < 0 )
                 {
                     MessageBox.Show("Please enter a positive number before pressing button");
+                    
                 }
                 if(canBeZero == false && myInt == 0)
                 {
@@ -183,7 +193,9 @@ namespace JournalNotes
             if (result == MessageBoxResult.Yes)
             {
                 currentJournal.Entries.Clear();
-             
+                textBox_Title.Text = String.Empty;
+                textBox_Entry.Text = String.Empty;
+
             }
             return;
         }
@@ -266,13 +278,141 @@ namespace JournalNotes
         private void doubleClickDataGrid(object sender, SelectionChangedEventArgs e)
         {
             //Cast
+            //Create a refrence object, save the refrence object as a selected item
             JournalEntry selected = (JournalEntry)dataGrid_JournalEntries.SelectedItem;
 
             //open new window with selection
             var window = new ConnectWindow { Owner = this };
             window.LoadEntry(selected);
             window.ShowDialog();
+        }
+        public void OpenSaveAs()
+        {
+            //OPens Save File Dialog Box
+            SaveFileDialog savefiledialog1 = new SaveFileDialog();
 
+            //Only Allows .txt files to be saved
+            savefiledialog1.Filter = "Text Files|*.txt";
+
+            //Users choice to act with Save Dialog
+            bool? saveFileAs = savefiledialog1.ShowDialog();
+
+            //If user does  hit save
+            if(saveFileAs == true)
+            {
+                //file name of user choice
+                string fileNameNew = savefiledialog1.FileName;
+
+                //Rename File Name
+                fileName = fileNameNew;
+
+                //save contents to string
+
+                string myContents = Newtonsoft.Json.JsonConvert.SerializeObject(currentJournal, Formatting.Indented);
+
+                //Writes the text to the file
+                File.WriteAllText(fileNameNew, myContents);
+            }
+            //If user decides not to save, do nothing
+            return;
+
+
+        }
+       public void SendToPrinter()
+        {
+            try
+            {
+
+                PrintDialog printdialog = new PrintDialog();
+                printdialog.ShowDialog();
+
+
+            }
+            catch(Exception)
+            {
+
+                MessageBox.Show("An Error has occured, please contact ADMIN");
+
+
+            }
+
+        }
+
+
+
+
+        //Menu Items
+        //
+        //
+        //
+
+
+        //Save Menu Item
+        private void MenuItem_Save_Click(object sender, RoutedEventArgs e)
+        {
+            if(fileName == "")
+            {
+
+                OpenSaveAs();
+            }
+
+            //Check contents of FIleName
+            string fileNameContents = File.ReadAllText(fileName);
+
+            //Check contents of current journal
+            string myContents = Newtonsoft.Json.JsonConvert.SerializeObject(currentJournal, Formatting.Indented);
+
+
+            if(fileNameContents == myContents)
+            {
+                return;
+
+            }
+            File.WriteAllText(fileName, myContents);
+        }
+
+
+        private void MenuItem_SaveAs_Click(object sender, RoutedEventArgs e)
+        {
+            OpenSaveAs();
+        }
+
+        //Print Button
+        private void MenuItem_Print_Click(object sender, RoutedEventArgs e)
+        {
+            SendToPrinter();
+
+        }
+
+        //Exit Menu Item
+        private void MenutItem_Exit_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Are you sure you want to quit?", "Exit Prompt", MessageBoxButton.YesNo);
+                {
+                if(result == MessageBoxResult.Yes)
+                {
+                    Environment.Exit(0);
+                }
+                return;
+            }
+        }
+
+        //New Journal
+        private void MenuItem_New_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Are you sure you want to create a new Journal? Any unsaved changes will be lost", "New Item Prompt", MessageBoxButton.YesNo);
+                {
+                     if(result == MessageBoxResult.Yes)
+                     {
+                          currentJournal.Entries.Clear();
+                          textBox_Title.Text = String.Empty;
+                         textBox_Entry.Text = String.Empty;
+
+
+                     }
+
+
+                }
 
         }
     }

@@ -5,34 +5,46 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:JournalNotes"
         mc:Ignorable="d"
-        Title="MainWindow" Height="452.858" Width="668.333">
+        Title="MainWindow" Height="507.858" Width="675.333">
     <Grid Margin="0,0,0,16">
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="101*"/>
-            <ColumnDefinition Width="229*"/>
+            <ColumnDefinition Width="90*"/>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="134*"/>
         </Grid.ColumnDefinitions>
-        <DataGrid x:Name="dataGrid_JournalEntries" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="221" Width="440" CanUserAddRows="False" IsReadOnly="True" Grid.ColumnSpan="2" SelectionChanged="doubleClickDataGrid"  >
+        <DataGrid x:Name="dataGrid_JournalEntries" HorizontalAlignment="Left" Margin="6,42,0,0" VerticalAlignment="Top" Height="221" Width="440" CanUserAddRows="False" IsReadOnly="True" Grid.ColumnSpan="4" SelectionChanged="doubleClickDataGrid"  >
             <DataGrid.AlternatingRowBackground>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black" Offset="0"/>
                     <GradientStop Color="#FF007C76" Offset="0.126"/>
                 </LinearGradientBrush>
             </DataGrid.AlternatingRowBackground>
-           
+
         </DataGrid>
 
-        <Button x:Name="button" Content="Publish" HorizontalAlignment="Left" Height="67" Margin="167,329,0,0" VerticalAlignment="Top" Width="122" Background="#FFCCF1C7" Click="button_Click" Grid.Column="1"/>
-        <TextBox x:Name="textBox_Entry" HorizontalAlignment="Left" Height="57" Margin="10,339,0,0" TextWrapping="Wrap" VerticalAlignment="Top" AcceptsTab="True" AcceptsReturn="True" AutoWordSelection="True" SpellCheck.IsEnabled="True" Width="338" VerticalScrollBarVisibility="Auto" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="textBox_Title" HorizontalAlignment="Left" Height="32" Margin="10,278,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="338" Grid.ColumnSpan="2"/>
-        <Label x:Name="label" Content="Title:" HorizontalAlignment="Left" Height="34" Margin="10,244,0,0" VerticalAlignment="Top" Width="42"/>
-        <Label x:Name="label_Copy" Content="Entry:" HorizontalAlignment="Left" Height="34" Margin="10,315,0,0" VerticalAlignment="Top" Width="42"/>
-        <Button x:Name="button_DeleteEntry" Content="Delete Entry" HorizontalAlignment="Left" Height="21" Margin="253,10,0,0" VerticalAlignment="Top" Width="57" FontSize="8" RenderTransformOrigin="0.474,0.873" Click="button_DeleteEntry_Click" Grid.Column="1"/>
-        <TextBox x:Name="textBox_DeleteEntry" HorizontalAlignment="Left" Height="23" Margin="253,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="52" Text="Entry #" GotFocus="onFocusClearText" Grid.Column="1"/>
-        <Button x:Name="button_EditEntry" Content="Edit Entry" HorizontalAlignment="Left" Height="21" Margin="253,73,0,0" VerticalAlignment="Top" Width="57" FontSize="8" Click="button_EditEntry_Click" Grid.Column="1"/>
-        <TextBox x:Name="textBox_EditEntry" HorizontalAlignment="Left" Height="23" Margin="253,94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="52" Text="Entry #" GotFocus="onFocusClearText" Grid.Column="1"/>
-        <Button x:Name="button_DuplicateEntry" Content="Duplicate Entry" HorizontalAlignment="Left" Height="21" Margin="253,134,0,0" VerticalAlignment="Top" Width="57" FontSize="8" Click="button_DuplicateEntry_Click" Grid.Column="1"/>
-        <TextBox x:Name="textBox_DuplicateEntry" HorizontalAlignment="Left" Height="23" Margin="253,155,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="52" Text="Entry #" GotFocus="onFocusClearText" Grid.Column="1"/>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="221" Margin="333,10,0,0" VerticalAlignment="Top" Width="2" Grid.Column="1"/>
-        <Button x:Name="button_DeleteEntry_Copy" Content="Clear All Entries" HorizontalAlignment="Left" Height="21" Margin="358,10,0,0" VerticalAlignment="Top" Width="73" FontSize="8" RenderTransformOrigin="0.474,0.873" Click="button_DeleteEntry_Copy_Click" Grid.Column="1"/>
+        <Button x:Name="button" Content="Publish" HorizontalAlignment="Left" Height="67" Margin="4,360,0,-5" VerticalAlignment="Top" Width="122" Background="#FFCCF1C7" Click="button_Click" Grid.Column="2" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="textBox_Entry" HorizontalAlignment="Left" Height="57" Margin="6,366,0,-1" TextWrapping="Wrap" VerticalAlignment="Top" AcceptsTab="True" AcceptsReturn="True" AutoWordSelection="True" SpellCheck.IsEnabled="True" Width="338" VerticalScrollBarVisibility="Auto" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="textBox_Title" HorizontalAlignment="Left" Height="32" Margin="6,305,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="338" Grid.ColumnSpan="2"/>
+        <Label x:Name="label" Content="Title:" HorizontalAlignment="Left" Height="34" Margin="6,271,0,0" VerticalAlignment="Top" Width="42"/>
+        <Label x:Name="label_Copy" Content="Entry:" HorizontalAlignment="Left" Height="34" Margin="6,342,0,0" VerticalAlignment="Top" Width="42"/>
+        <Button x:Name="button_DeleteEntry" Content="Delete Entry" HorizontalAlignment="Left" Height="21" Margin="66,42,0,0" VerticalAlignment="Top" Width="57" FontSize="8" RenderTransformOrigin="0.474,0.873" Click="button_DeleteEntry_Click" Grid.Column="3"/>
+        <TextBox x:Name="textBox_DeleteEntry" HorizontalAlignment="Left" Height="23" Margin="66,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="52" Text="Entry #" GotFocus="onFocusClearText" Grid.Column="3"/>
+        <Button x:Name="button_EditEntry" Content="Edit Entry" HorizontalAlignment="Left" Height="21" Margin="66,105,0,0" VerticalAlignment="Top" Width="57" FontSize="8" Click="button_EditEntry_Click" Grid.Column="3"/>
+        <TextBox x:Name="textBox_EditEntry" HorizontalAlignment="Left" Height="23" Margin="66,126,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="52" Text="Entry #" GotFocus="onFocusClearText" Grid.Column="3"/>
+        <Button x:Name="button_DuplicateEntry" Content="Duplicate Entry" HorizontalAlignment="Left" Height="21" Margin="66,166,0,0" VerticalAlignment="Top" Width="57" FontSize="8" Click="button_DuplicateEntry_Click" Grid.Column="3"/>
+        <TextBox x:Name="textBox_DuplicateEntry" HorizontalAlignment="Left" Height="23" Margin="66,187,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="52" Text="Entry #" GotFocus="onFocusClearText" Grid.Column="3"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="221" Margin="146,42,0,0" VerticalAlignment="Top" Width="2" Grid.Column="3"/>
+        <Button x:Name="button_DeleteEntry_Copy" Content="Clear All Entries" HorizontalAlignment="Left" Height="21" Margin="171,42,0,0" VerticalAlignment="Top" Width="73" FontSize="8" RenderTransformOrigin="0.474,0.873" Click="button_DeleteEntry_Copy_Click" Grid.Column="3"/>
+        <Menu x:Name="menu" Background="CornflowerBlue" HorizontalAlignment="Left" Height="27" VerticalAlignment="Top" Width="660" Grid.ColumnSpan="4">
+            <MenuItem Header="File">
+                <MenuItem x:Name="MenuItem_New" Header="New" Click="MenuItem_New_Click"/>
+                <MenuItem x:Name="MenuItem_Save" Header="Save" Click="MenuItem_Save_Click"/>
+                <MenuItem x:Name="MenuItem_SaveAs" Header="Save As..." Click="MenuItem_SaveAs_Click"/>
+                <MenuItem x:Name="MenuItem_Print" Header="Print" Click="MenuItem_Print_Click"/>
+                <MenuItem x:Name="MenutItem_Exit" Header="Exit" Click="MenutItem_Exit_Click"/>
+            </MenuItem>
+        </Menu>
     </Grid>
 </Window>
