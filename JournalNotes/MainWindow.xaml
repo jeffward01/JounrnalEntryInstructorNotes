@@ -40,11 +40,14 @@
         <Menu x:Name="menu" Background="CornflowerBlue" HorizontalAlignment="Left" Height="27" VerticalAlignment="Top" Width="660" Grid.ColumnSpan="4">
             <MenuItem Header="File">
                 <MenuItem x:Name="MenuItem_New" Header="New" Click="MenuItem_New_Click"/>
+                <MenuItem x:Name="MenuItem_Open" Header="Open"  Click="MenuItem_Open_Click"/>
                 <MenuItem x:Name="MenuItem_Save" Header="Save" Click="MenuItem_Save_Click"/>
                 <MenuItem x:Name="MenuItem_SaveAs" Header="Save As..." Click="MenuItem_SaveAs_Click"/>
                 <MenuItem x:Name="MenuItem_Print" Header="Print" Click="MenuItem_Print_Click"/>
                 <MenuItem x:Name="MenutItem_Exit" Header="Exit" Click="MenutItem_Exit_Click"/>
             </MenuItem>
         </Menu>
+        <Button x:Name="button_SearchEntry" Content="Search Entry" HorizontalAlignment="Left" Height="21" Margin="171,105,0,0" VerticalAlignment="Top" Width="57" FontSize="8" Grid.Column="3" Click="button_SearchEntry_Click"/>
+        <TextBox x:Name="textBox_SearchEntry" HorizontalAlignment="Left" Height="23" Margin="154,126,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="90" Text="Enter a Word" GotFocus="onFocusClearText" Grid.Column="3"/>
     </Grid>
 </Window>

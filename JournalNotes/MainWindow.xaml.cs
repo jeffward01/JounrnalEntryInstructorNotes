@@ -415,6 +415,122 @@ namespace JournalNotes
                 }
 
         }
+
+        //Needs to be completed
+        private void MenuItem_Open_Click(object sender, RoutedEventArgs e)
+        {
+            //Open open file Dialog
+            OpenFileDialog dialog = new OpenFileDialog();
+
+            bool? openFile = dialog.ShowDialog();
+
+            if (openFile == true)
+            {
+                //Get the name of the file selected by user
+                fileName = dialog.FileName;
+
+                //OPen the file and read the contents into a string
+                string myFile = File.ReadAllText(fileName);
+
+                try
+                {
+                    Journal newJournal = JsonConvert.DeserializeObject<Journal>(myFile);
+
+
+                    currentJournal = newJournal;
+                    //Refresh Grid
+
+
+                    dataGrid_JournalEntries.ItemsSource = null;
+
+                   // dataGrid_JournalEntries.ItemsSource = currentJournal;
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Error opening file, contact system ADMIN");
+
+                }
+                
+
+               
+            }
+        }
+
+        private void button_SearchEntry_Click(object sender, RoutedEventArgs e)
+        {
+            //Get input from textbox
+            string SearchString = textBox_SearchEntry.Text;
+
+            //See if SearchString is found in Journal
+
+            //Make Var for JournalEntry
+            JournalEntry Existing = null;
+
+            //Locate Object in Title
+            foreach (var phrase in currentJournal.Entries)
+            {
+                if (phrase.Title == SearchString)
+                {
+                    Existing = phrase;
+                    break;
+                }
+            }
+            try
+            {
+                //Locate Object in Date
+                foreach (var phrase in currentJournal.Entries)
+                {
+                    DateTime myDate = DateTime.Parse(SearchString);
+                    if (phrase.EntryDate == myDate)
+                    {
+                        Existing = phrase;
+                        break;
+                    }
+                }
+            }
+            catch
+            { }
+            
+            //Locate Object in Entry
+            foreach (var phrase in currentJournal.Entries)
+            {
+                if (phrase.Entry == SearchString)
+                {
+                    Existing = phrase;
+                    break;
+                }
+            }
+
+            try
+            {
+                //Locate Object in ID
+                foreach (var phrase in currentJournal.Entries)
+                {
+                    int myID = Int32.Parse(SearchString);
+                    if (phrase.Id == myID)
+                    {
+                        Existing = phrase;
+                        break;
+                    }
+                }
+            }
+            catch { }
+
+            if (Existing != null)
+            {
+                //Open Edit Entry Window Here
+                openEditEntry(Existing);
+            }
+            else
+            {
+
+                MessageBox.Show("Your search cannot be found... Try something else.");
+
+            }
+
+
+
+        }
     }
 
 }
