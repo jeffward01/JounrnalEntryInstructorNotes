@@ -17,6 +17,9 @@ using Microsoft.Win32;
 using System.IO;
 using System.Collections;
 using Newtonsoft.Json;
+
+
+
 namespace JournalNotes
 {
     /// <summary>
@@ -31,11 +34,13 @@ namespace JournalNotes
             currentJournal = new Journal("MyJournal");
 
             dataGrid_JournalEntries.ItemsSource = currentJournal.Entries;
+            label_fileName.Content = fileName;
         }
         //Properties
         private Journal currentJournal;
-        public string fileName = "";
-        public string defaultFileName = "Untitled";
+        public string fileName = "Untitled";
+        public string filePath;
+       
 
         //Methods
         private void button_Click(object sender, RoutedEventArgs e)
@@ -300,40 +305,45 @@ namespace JournalNotes
             //If user does  hit save
             if(saveFileAs == true)
             {
-                //file name of user choice
+                //file name/path of user choice
                 string fileNameNew = savefiledialog1.FileName;
 
-                //Rename File Name
-                fileName = fileNameNew;
+                //Save File Path to varible
+                filePath = fileNameNew;
+
+                //Change Label of top bar
+                //Example of Instantiazion
+                FileInfo fi = new FileInfo(savefiledialog1.FileName);
+                string text = fi.Name;
+                
 
                 //save contents to string
-
                 string myContents = Newtonsoft.Json.JsonConvert.SerializeObject(currentJournal, Formatting.Indented);
 
                 //Writes the text to the file
                 File.WriteAllText(fileNameNew, myContents);
+
+                //Display FileName
+                label_fileName.Content = text;
+                
+                //change globable filename to new filename
+                fileName = text;
             }
             //If user decides not to save, do nothing
             return;
-
-
         }
+
        public void SendToPrinter()
         {
             try
             {
-
                 PrintDialog printdialog = new PrintDialog();
                 printdialog.ShowDialog();
-
 
             }
             catch(Exception)
             {
-
                 MessageBox.Show("An Error has occured, please contact ADMIN");
-
-
             }
 
         }
@@ -350,25 +360,31 @@ namespace JournalNotes
         //Save Menu Item
         private void MenuItem_Save_Click(object sender, RoutedEventArgs e)
         {
-            if(fileName == "")
+            if(fileName == "Untitled")
             {
-
                 OpenSaveAs();
             }
 
-            //Check contents of FIleName
-            string fileNameContents = File.ReadAllText(fileName);
-
-            //Check contents of current journal
-            string myContents = Newtonsoft.Json.JsonConvert.SerializeObject(currentJournal, Formatting.Indented);
-
-
-            if(fileNameContents == myContents)
+            try
             {
-                return;
+                //Check contents of FIleName
+                string fileNameContents = File.ReadAllText(filePath);
 
+                //Check contents of current journal
+                string myContents = Newtonsoft.Json.JsonConvert.SerializeObject(currentJournal, Formatting.Indented);
+
+
+                if (fileNameContents == myContents)
+                {
+                    return;
+
+                }
+                File.WriteAllText(filePath, myContents);
             }
-            File.WriteAllText(fileName, myContents);
+            catch (Exception)
+            {
+                MessageBox.Show("Error occured saving.  Please use SAVE AS and contact system Admin");
+            }
         }
 
 
@@ -531,6 +547,7 @@ namespace JournalNotes
 
 
         }
+       
     }
 
 }
