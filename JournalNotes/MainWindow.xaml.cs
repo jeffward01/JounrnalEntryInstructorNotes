@@ -485,10 +485,10 @@ namespace JournalNotes
             //Locate Object in Title
             foreach (var phrase in currentJournal.Entries)
             {
-                if (phrase.Title == SearchString)
+                if (phrase.Title.Contains(SearchString))
                 {
                     Existing = phrase;
-                    break;
+                    
                 }
             }
             try
@@ -510,10 +510,10 @@ namespace JournalNotes
             //Locate Object in Entry
             foreach (var phrase in currentJournal.Entries)
             {
-                if (phrase.Entry == SearchString)
+                if (phrase.Entry.Contains(SearchString))
                 {
                     Existing = phrase;
-                    break;
+                    
                 }
             }
 
@@ -537,6 +537,9 @@ namespace JournalNotes
                 //Open Edit Entry Window Here
                 openEditEntry(Existing);
             }
+
+
+
             else
             {
 
